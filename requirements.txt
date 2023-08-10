@@ -1,6 +1,6 @@
-fastapi["all"]
-uvicorn
-joblib
+#fastapi["all"]
+#uvicorn
+#joblib
 annotated-types==0.5.0
 anyio==3.7.1
 black==23.7.0
