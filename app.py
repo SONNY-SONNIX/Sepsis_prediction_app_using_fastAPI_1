@@ -1,3 +1,6 @@
+pip install --no-cache-dir --upgrade -r /code/requirements.txt
+
+
 from fastapi import FastAPI, Query, Request, HTTPException
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
