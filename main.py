@@ -78,7 +78,7 @@ templates = Jinja2Templates(directory="templates")
 # Load the pickled XGBoost model
 xgb_model = joblib.load("xgb_model.joblib")
 
-@app.get("/")
+@app.get("/app")
 async def read_root():
     return {"message": "Welcome to the XGBoost Diabetes Prediction API"}
 
