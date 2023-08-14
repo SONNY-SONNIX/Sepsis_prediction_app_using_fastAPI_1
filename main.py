@@ -145,7 +145,7 @@ app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 
 # Load the pickled machine learning model
-model = joblib.load("model.joblib")
+model = joblib.load("xgb_model.joblib")
 
 # Load the scaler
 scaler = joblib.load("scaler.joblib")
@@ -210,6 +210,6 @@ async def predict_ml(
             }
         )
     except Exception as e:
-        raise HTTPException(status_code=500, detail="An error occurred while processing the request.")
+        raise HTTPException(status_code=500, detail=str(e))
 
 
