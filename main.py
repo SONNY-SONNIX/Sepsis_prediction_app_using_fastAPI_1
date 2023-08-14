@@ -71,6 +71,7 @@ from fastapi import FastAPI, Query, Request, HTTPException
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 import joblib
+from sklearn.preprocessing import StandardScaler  # Import a standard scaler for data preprocessing
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
