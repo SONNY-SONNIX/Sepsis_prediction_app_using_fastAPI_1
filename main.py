@@ -185,7 +185,7 @@ async def predict_ml(
         })
 
         # Scale the input data using the loaded scaler
-        scaled_input = scaler.transform(input_data)
+        #scaled_input = scaler.transform(input_data)
 
         # Make predictions using the loaded machine learning model
         prediction = model.predict_proba(scaled_input)
