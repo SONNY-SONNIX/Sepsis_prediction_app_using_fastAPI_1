@@ -3,3 +3,5 @@ joblib
 uvicorn
 jinja2
 numpy
+sklearn 
+pandas 
