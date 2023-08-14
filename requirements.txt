@@ -3,5 +3,5 @@ joblib
 uvicorn
 jinja2
 numpy
-sklearn 
+scikit-learn 
 pandas 
