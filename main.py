@@ -145,7 +145,7 @@ app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 
 # Load the pickled machine learning model
-model = joblib.load(xgb_model.joblib)
+model = joblib.load("xgb_model.joblib")
 
 # Load the scaler
 #scaler = joblib.load("scaler.joblib")
