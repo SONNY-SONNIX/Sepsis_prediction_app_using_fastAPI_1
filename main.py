@@ -16,11 +16,6 @@ model = joblib.load("XGB.joblib")
 async def read_root():
     return {"message": "Welcome to the Sepsis Prediction using FastAPI"}
 
-# @app.get("/form/")
-# async def show_form():
-# #     return templates.TemplateResponse("input_form.html", {"request": None})
-#     return{"Welcome to the Sepsis Prediction using FastAPdI"}
-
 def classify(prediction):
     if prediction == 0:
         return "Patient does not have sepsis"
