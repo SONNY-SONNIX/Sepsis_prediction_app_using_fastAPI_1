@@ -1,13 +1,11 @@
 
 
 from fastapi import FastAPI, Query, Request, HTTPException
-from fastapi.responses import JSONResponse, HTMLResponse
 import joblib
 import pandas as pd
 
 
 app = FastAPI()
-templates = Jinja2Templates(directory="templates")
 
 # Load the pickled machine learning model
 model = joblib.load("XGB.joblib")
