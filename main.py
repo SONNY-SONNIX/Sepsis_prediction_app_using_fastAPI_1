@@ -133,22 +133,20 @@
 
 
 
-# main.py
 from fastapi import FastAPI, Query, Request, HTTPException
 from fastapi.responses import JSONResponse, HTMLResponse
 from fastapi.templating import Jinja2Templates
 import joblib
 import pandas as pd
-from sklearn.preprocessing import StandardScaler  # Import a standard scaler for data preprocessing
+
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 
 # Load the pickled machine learning model
-model = joblib.load("xgb_model.joblib")
+model = joblib.load("XGB.joblib")
 
-# Load the scaler
-#scaler = joblib.load("scaler.joblib")
+
 
 @app.get("/")
 async def read_root():
@@ -156,10 +154,18 @@ async def read_root():
 
 @app.get("/form/")
 async def show_form():
-    return templates.TemplateResponse("input_form.html", {"request": None})
+#     return templates.TemplateResponse("input_form.html", {"request": None})
+    return{"Welcome to the Sepsis Prediction using FastAPdI"}
 
+def classify(prediction):
+    if prediction == 0:
+        return "Patient does not have sepsis"
+    else:
+        return "Patient has sepsis"
+
+        
 @app.post("/predict/")
-async def predict_ml(
+async def predict_sepsis(
     request: Request,
     prg: float = Query(..., description="Plasma glucose"),
     pl: float = Query(..., description="Blood Work Result-1 (mu U/ml)"),
@@ -171,52 +177,76 @@ async def predict_ml(
     age: int = Query(..., description="Patient's age (years)")
     # ... (other input parameters)
 ):
-    try:
-        # Prepare input features for prediction as a DataFrame
-        input_data = pd.DataFrame({
-            "prg": [prg],
-            "pl": [pl],
-            "pr": [pr],
-            "sk": [sk],
-            "ts": [ts],
-            "m11": [m11],
-            "bd2": [bd2],
-            "age": [age]
-        })
+    input_data = [prg, pl, pr, sk, ts, m11, bd2, age]
+
+    input_df = pd.DataFrame([input_data], columns=[
+        "Plasma glucose", "Blood Work Result-1", "Blood Pressure",
+        "Blood Work Result-2", "Blood Work Result-3",
+        "Body mass index", "Blood Work Result-4", "Age"
+    ])
+
+    pred = model.predict(input_df)
+    output = classify(pred[0])
+
+    response = {
+        "prediction": output
+    }
+
+    return response
+
+    # Run the app using Uvicorn
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="127.0.0.1", port=7860)
+
+    
+    
+    # try:
+    #     # Prepare input features for prediction as a DataFrame
+    #     input_data = pd.DataFrame({
+    #         "prg": [prg],
+    #         "pl": [pl],
+    #         "pr": [pr],
+    #         "sk": [sk],
+    #         "ts": [ts],
+    #         "m11": [m11],
+    #         "bd2": [bd2],
+    #         "age": [age]
+    #     })
 
         # Scale the input data using the loaded scaler
         #model_input = model.transform(input_data)
 
         # Make predictions using the loaded machine learning model
-        prediction = model.predict_proba(input_data)
+        #prediction = model.predict_proba(input_data)
 
-        # Create a JSON response
-        response = {
-            "request": {
-                "prg": prg,                
-                "pl": pl,
-                "pr": pr,
-                "sk": sk,                 
-                "ts": ts,
-                "m11": m11,
-                "bd2": bd2,
-                "age": age
-            },
-            "prediction": {
-                "class_0_probability": prediction[0][0],
-                "class_1_probability": prediction[0][1]
-            }
-        }
+        # # Create a JSON response
+        # response = {
+        #     "request": {
+        #         "prg": prg,                
+        #         "pl": pl,
+        #         "pr": pr,
+        #         "sk": sk,                 
+        #         "ts": ts,
+        #         "m11": m11,
+        #         "bd2": bd2,
+        #         "age": age
+        #     },
+        #     "prediction": {
+        #         "class_0_probability": prediction[0][0],
+        #         "class_1_probability": prediction[0][1]
+        #     }
+        # }
 
-        return templates.TemplateResponse(
-            "display_params.html",
-            {
-                "request": request,
-                "input_features": response["request"],
-                "prediction": response["prediction"]
-            }
-        )
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+    #     return templates.TemplateResponse(
+    #         "display_params.html",
+    #         {
+    #             "request": request,
+    #             "input_features": response["request"],
+    #             "prediction": response["prediction"]
+    #         }
+    #     )
+    # except Exception as e:
+    #     raise HTTPException(status_code=500, detail=str(e))
 
 
