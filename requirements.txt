@@ -2,6 +2,6 @@ fastapi
 joblib
 uvicorn
 jinja2
-numpy
-scikit-learn 
+numpy 
 pandas 
+pydantic 
