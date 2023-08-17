@@ -5,6 +5,6 @@ jinja2
 numpy 
 pandas 
 pydantic 
-scikit-learn
+#scikit-learn
 imblearn
 xgboost 
