@@ -2,6 +2,14 @@
 
  ### Introduction
  
+ Sepsis is a life-threatening condition caused by the body's response to an infection.
+
+ Early detection and intervention are critical to saving lives. 
+ 
+ In this project, we'll develop a FastAPI web application that predicts whether a patient has sepsis based on various medical attributes.
+ 
+ We'll then deploy the app in a Docker container using Hugging Face's platform.
+ 
 
 
 
@@ -51,6 +59,21 @@ Run the Docker Container: Once the image is built, run the Docker container usin
 #### Copy code
 
 *docker run -p 7860:7860 sepsis-prediction-app*
+
+### Project Setup
+
+It's important to note, we'll need to create a directory structure for our project:
+
+sepsis_prediction_app/
+
+├── Dockerfile
+
+├── main.py
+
+├── XGB.joblib
+
+├── requirements.txt
+
 
 #### Access the App: 
 
@@ -127,22 +150,23 @@ Dockerization makes deployment hassle-free. Feel free to customize and extend th
 
 This project is licensed under the MIT License.
 
-Conclusion 🎉
+#### Conclusion 🎉
 
 Congratulations! You've successfully set up the Sepsis Prediction FastAPI application using Docker.
 
 This app provides a simple and efficient way to predict sepsis using patient data.
 
-## 👥 Authors
+#### 👥 Authors
+
 This project is developed and maintained by:
 
 Sonny Agorvor -Otchie feel free to reach out to me with any questions or feedback!
 
-## ✨ Acknowledgments
+#### ✨ Acknowledgments
 
 I would like to express my gratitude to The Azubi Africa team for their valuable contributions to this project.
 
-## 📞 Contact
+#### 📞 Contact
 
 For any questions, concerns, or suggestions regarding this project, please contact us at otchie.sonny@gmail.com.
 
