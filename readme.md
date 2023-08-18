@@ -1,5 +1,17 @@
-
 # Dockerized FastAPI Sepsis Prediction App with Machine-learning model 🩺🐳
+
+ ### Introduction
+ 
+
+
+
+
+
+
+# Summary
+| Code      | Name        | Published Article |  Deployed App |
+|-----------|-------------|:-------------:|------:|
+| P6- Embedding Machine Learning Model into Web Application|The Sentiment Analysis Project| [Article] (  )| [Deployed App] (https://huggingface.co/spaces/Sonny4Sonnix/Sepsis_prediction_app_using_fastAPI_1) |
 
 ### Description 🚀📊
 
