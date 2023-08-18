@@ -133,4 +133,19 @@ Congratulations! You've successfully set up the Sepsis Prediction FastAPI applic
 
 This app provides a simple and efficient way to predict sepsis using patient data.
 
+## 👥 Authors
+This project is developed and maintained by:
+
+Sonny Agorvor -Otchie feel free to reach out to me with any questions or feedback!
+
+## ✨ Acknowledgments
+
+I would like to express my gratitude to The Azubi Africa team for their valuable contributions to this project.
+
+## 📞 Contact
+
+For any questions, concerns, or suggestions regarding this project, please contact us at otchie.sonny@gmail.com.
+
+
+
  
