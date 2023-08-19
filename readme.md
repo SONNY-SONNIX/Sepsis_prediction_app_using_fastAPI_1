@@ -12,14 +12,10 @@
  
 
 
-
-
-
-
 # Summary
 | Code      | Name        | Published Article |  Deployed App |
 |-----------|-------------|:-------------:|------:|
-| P6- Embedding Machine Learning Model into Web Application|The Sentiment Analysis Project| [Article] (  )| [Deployed App] (https://huggingface.co/spaces/Sonny4Sonnix/Sepsis_prediction_app_using_fastAPI_1) |
+| P6- Embedding Machine Learning Model into Web Application|The Sentiment Analysis Project| [Article] (https://medium.com/@otchie.sonny/enhancing-patient-care-building-a-sepsis-predictor-app-using-fastapi-and-docker-d42526fb51d7  )| [Deployed App] (https://sonny4sonnix-sepsis-prediction-app-using-fastapi-1.hf.space/docs) |
 
 ### Description 🚀📊
 
